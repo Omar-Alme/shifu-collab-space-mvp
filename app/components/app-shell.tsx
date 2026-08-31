@@ -38,8 +38,7 @@ export function AppShell({
               className="h-auto w-40 brightness-0 invert"
               priority
             />
-            <div className="mt-5 text-2xl font-semibold">CollabOS</div>
-            <div className="mt-1 text-sm text-neutral-400">Community Intelligence</div>
+            <div className="mt-5 text-2xl font-semibold">Operating System</div>
           </Link>
           <nav className="mt-8 grid gap-1">
             {nav.map((item) => {
