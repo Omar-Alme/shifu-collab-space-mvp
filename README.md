@@ -22,6 +22,10 @@ CollabSpace is more than coworking: it is a business community, referral network
 - `app/` contains the Next.js App Router routes.
 - `app/(admin)` contains management-only pages.
 - `app/(member)` contains member-facing discovery and profile pages.
+- `app/components/` contains the app shell, navigation and the shared opportunity and organization cards.
+- `components/ui/` contains the design-system primitives (button, badge, card, table, field, meter, stat, tabs, empty state).
+- `app/globals.css` defines the design tokens: colour, radius, shadow and type scale.
+- `lib/display.ts` maps domain values (opportunity type, status, priority) to their on-screen label and tone.
 - `lib/demo-data.ts` contains the pitch demo dataset.
 - `lib/data.ts` is the data access boundary. It reads Supabase when configured and falls back to local demo data when not.
 - `lib/opportunity-engine.ts` contains deterministic matching rules.
@@ -37,6 +41,8 @@ CollabSpace is more than coworking: it is a business community, referral network
 - Supabase
 - Supabase Auth-ready demo role model
 - PostgreSQL
+- Tailwind CSS v4 design tokens
+- Inter / Inter Tight via `next/font`
 - Lucide icons
 - Recharts-ready dependency for future analytics views
 

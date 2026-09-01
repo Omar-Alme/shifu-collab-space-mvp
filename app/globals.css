@@ -1,47 +1,156 @@
 @import "tailwindcss";
 
-:root {
-  --background: #f7f7f5;
-  --foreground: #171717;
-  --card: #ffffff;
-  --muted: #eeece8;
-  --muted-foreground: #6d6963;
-  --border: #dfd9d1;
-  --primary: #d94a1e;
-  --primary-dark: #9f3015;
-  --accent: #2f6f73;
-  --success: #247a4d;
-  --warning: #b47a13;
-  --danger: #b84032;
-  --shifu: #161616;
-  --radius: 14px;
+/* ------------------------------------------------------------------
+   CollabOS design tokens
+   Warm-neutral canvas, restrained CollabSpace orange, crisp 1px edges.
+------------------------------------------------------------------ */
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: var(--font-inter-tight), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  /* Surfaces */
+  --color-canvas: #fafaf9;
+  --color-surface: #ffffff;
+  --color-subtle: #f5f4f2;
+  --color-line: #e8e5e1;
+  --color-line-strong: #d9d5cf;
+
+  /* Text */
+  --color-ink: #1a1917;
+  --color-ink-2: #57534e;
+  --color-ink-3: #8a8580;
+
+  /* Brand */
+  --color-brand: #d94a1e;
+  --color-brand-hover: #bf3d14;
+  --color-brand-ink: #9c3413;
+  --color-brand-soft: #fdf2ed;
+  --color-brand-line: #f6d9cc;
+
+  /* Accent */
+  --color-accent: #2f6f73;
+  --color-accent-soft: #eff6f6;
+  --color-accent-line: #cfe3e3;
+
+  /* Semantic */
+  --color-positive: #15734a;
+  --color-positive-soft: #eef8f2;
+  --color-positive-line: #cbe8d9;
+  --color-caution: #9a6410;
+  --color-caution-soft: #fdf6e9;
+  --color-caution-line: #f0dfbe;
+  --color-critical: #b3392b;
+  --color-critical-soft: #fdf1f0;
+  --color-critical-line: #f4d3ce;
+
+  /* Sidebar */
+  --color-nav: #141312;
+  --color-nav-2: #201e1c;
+  --color-nav-line: #2e2b28;
+  --color-nav-ink: #a8a29b;
+
+  --radius-md: 7px;
+  --radius-lg: 9px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
 }
 
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.018em;
+    margin: 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+    color: inherit;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background: var(--color-brand-soft);
+    color: var(--color-brand-ink);
+  }
+}
+
+/* Custom utilities registered with @utility so variants (hover:, sm:) work. */
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+@utility shadow-card {
+  box-shadow: 0 1px 2px rgba(26, 25, 23, 0.04);
+}
+
+@utility shadow-raised {
+  box-shadow:
+    0 1px 2px rgba(26, 25, 23, 0.05),
+    0 8px 24px -12px rgba(26, 25, 23, 0.16);
+}
+
+@utility shadow-pop {
+  box-shadow:
+    0 1px 2px rgba(26, 25, 23, 0.06),
+    0 16px 40px -16px rgba(26, 25, 23, 0.24);
+}
+
+/* Scrollbars: thin and quiet, matching the surface. */
 * {
-  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-line-strong) transparent;
 }
 
-body {
-  margin: 0;
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
 }
 
-button,
-input,
-select,
-textarea {
-  font: inherit;
+*::-webkit-scrollbar-thumb {
+  background-color: var(--color-line-strong);
+  border: 3px solid transparent;
+  background-clip: content-box;
+  border-radius: 999px;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.executive-shell {
-  background:
-    linear-gradient(180deg, rgba(217, 74, 30, 0.06), transparent 260px),
-    var(--background);
+*::-webkit-scrollbar-track {
+  background: transparent;
 }
