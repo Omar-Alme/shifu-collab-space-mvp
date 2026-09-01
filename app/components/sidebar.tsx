@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { ArrowLeftRight, Menu, Search, X } from "lucide-react";
+import { ArrowLeftRight, Menu, Presentation, Search, X } from "lucide-react";
 import { demoLogin } from "@/app/actions/auth";
 import { homeFor, labelForPath, navigation, searchFor } from "@/app/components/nav-config";
 import collabspaceLogo from "@/app/Collabspace-Logo.webp";
@@ -107,6 +107,15 @@ function RoleFooter({ role }: { role: Role }) {
           Switch to {other} view
         </button>
       </form>
+      <a
+        href="/pitch-deck.html"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex w-full items-center gap-2.5 rounded-md px-3 py-2 text-left text-[13px] text-nav-ink transition-colors hover:bg-white/5 hover:text-white"
+      >
+        <Presentation className="h-4 w-4" />
+        View pitch deck
+      </a>
     </div>
   );
 }
